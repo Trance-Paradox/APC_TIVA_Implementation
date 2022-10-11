@@ -1,0 +1,14 @@
+{
+    "files.associations": {
+        "sysctl.h": "c",
+        "pin_map.h": "c",
+        "hw_uart.h": "c",
+        "user.h": "c",
+        "uart.h": "c",
+        "uartstdio.h": "c",
+        "tm4c1294ncpdt.h": "c",
+        "arduino.h": "c",
+        "adc.h": "c",
+        "stdbool.h": "c"
+    }
+}

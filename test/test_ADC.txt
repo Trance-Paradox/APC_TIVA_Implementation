@@ -1,0 +1,35 @@
+uint32_t ulADC0_Value;
+
+    //
+    // Trigger the ADC conversion.
+    //
+    ADCProcessorTrigger(ADC0_BASE, 3);
+
+    //
+    // Wait for conversion to be completed.
+    //
+    while (!ADCIntStatus(ADC0_BASE, 3, false))
+    {
+    }
+
+    //
+    // Clear the ADC interrupt flag.
+    //
+    ADCIntClear(ADC0_BASE, 3);
+
+    //
+    // Read ADC Value.
+    //
+    ADCSequenceDataGet(ADC0_BASE, 3, &ulADC0_Value);
+
+    //
+    // Display the AIN0 (PE7) digital value on the console.
+    //
+    UARTprintf("AIN0 = %4d\n\r", ulADC0_Value);
+
+    //
+    // This function provides a means of generating a constant length
+    // delay.  The function delay (in cycles) = 3 * parameter.  Delay
+    // 250ms arbitrarily.
+    //
+    SysCtlDelay(SysCtlClockGet() / 12);
